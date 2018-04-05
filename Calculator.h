@@ -3,6 +3,7 @@
 #define MAIN_HEADER_H
 #include <iostream>
 #include <cstdlib>
+#include <math.h>
 using namespace std;
 
 
