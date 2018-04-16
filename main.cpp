@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>
+#include <unordered_map>
 #include "Calculator.h"
 
 using namespace std;
@@ -14,6 +15,9 @@ int menu;
 
 int main()
 {
+//	unordered_map<string key, string value> t = {
+//	
+//	};
 	bool exit = false;
 	Calculator calcmenu;
 	calcmenu.openPDF("");
