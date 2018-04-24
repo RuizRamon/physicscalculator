@@ -39,7 +39,7 @@ namespace Solver
 //    CloseHandle( pi.hThread );
 //}
 
-void Calculator::openPDF(string path)
+void Calculator::openPDF(string path, bool book)
 {
 	const char text_filename[] = "files\\solnphysics.pdf";
 //	const char text_application[] = "firefox.exe";

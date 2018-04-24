@@ -22,7 +22,7 @@ namespace Solver
 	public:
 		void menuprint();
 		void choices();
-		void openPDF(string path);
+		void openPDF(string path, bool book);
 		void startup(LPCTSTR lpApplicationName);
 		
 	};

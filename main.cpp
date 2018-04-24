@@ -20,7 +20,7 @@ int main()
 //	};
 	bool exit = false;
 	Calculator calcmenu;
-	calcmenu.openPDF("");
+	calcmenu.openPDF("", 0);
 //	calcmenu.startup("notepad.exe");
 	//IF USER NEVER EXITED, RUN THROUGH PROGRAM
 	while (exit != true)
