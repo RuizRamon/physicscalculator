@@ -312,9 +312,36 @@ void Calculator::choices()
 					break;
 		case 2:	//IF USER CHOOSES TO FIND SIMILAR
 			system("cls");
-			cout << "Enter a 3rd edition problem to see what earlier editions are the same..." << endl;
-			// rest of code
-			break;
+					cout << "This option is to see what earlier edition chapter problems are the same as the problem you select." << endl;
+					cout << "Enter the chapter number and press enter: ";
+					cin >> chapter;
+					switch (chapter)
+					{
+					case 1:	//IF USER CHOOSES CHAPTER 1
+						cout << "Sorry we currently don't have chapter 1 solutions." << endl;
+						break;
+					case 2:	//IF USER CHOOSES CHAPTER 2
+						cout << "Sorry we currently don't have chapter 2 solutions." << endl;
+						break;
+					case 3:	//IF USER CHOOSES CHAPTER 3
+						cout << "Enter the problem number and press enter: ";
+						cin >> problem;
+						cout << endl;
+						switch (problem)	//OPTIONS FOR PROBLEMS WITHIN CHAPTER 3
+						{
+						case 1:
+							break;
+						case 2:
+							break;
+						case 3:
+							break;
+						case 4:
+							break;
+						}
+					}
+
+					// rest of code
+					break;
 		case 3:	//IF USER CHOOSES TO VIEW STEPS
 			system("cls");
 			cout << "Enter a problem you want the steps for" << endl;
