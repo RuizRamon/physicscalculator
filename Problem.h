@@ -16,22 +16,44 @@ namespace Solver
 	//	vector<string> prompts;
 		public:
 			string problemText;
+			int numProblem;
+			int page;
 			
 			vector<string> varPrompts;
 			vector<double> vars;
+			
 			vector<string> answerPrompts;
 			vector<double> answers;
 			
 			void promptVar();
 			void displayAns();
 			void initProblem();
-			void solve();
+			void solve(int num);
+			
+			void addVarPrompt(string p);
+			void addAnsPrompt(string ap);
+			
 			
 			Problem(string text)
 			{
 				this->problemText = text;
-				initProblem();
+//				initProblem();
 			}
+			Problem(int numProb, string text, int page, vector<string> varPrompts, vector<string> ansPrompts)
+			{
+				this->problemText = text;
+				this->page = page;
+				this->varPrompts = varPrompts;
+				this->answerPrompts = ansPrompts;
+				numProblem = numProb;
+//				initProblem();
+			}
+			Problem()
+			{
+				
+			}
+			
+			
 			~Problem()
 			{
 				

@@ -4,9 +4,16 @@
 #include "Book.h"
 namespace Solver
 {
-	void Book::openBook()
+	void Book::openPage(bool manual)
 	{
-		
+		if(manual)
+		{
+			
+		}
+		else
+		{
+			
+		}
 	}
 	void Book::initBook()
 	{

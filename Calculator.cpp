@@ -88,13 +88,9 @@ void Calculator::choices()
 							case 1:
 								prob = nowBook()->getChapter(2)->getProblem(0);
 								system("cls");	//CLEAR SCREEN
-								cout << "Solution for Problem 3.1..." << endl << endl;
-								cout << "Problem Text:" << endl;
 								
-								cout << prob->problemText << endl;
-								prob->promptVar();
-								prob->solve();
-								prob->displayAns();
+								prob->initProblem();
+								
 								delete prob;
 								break;
 								

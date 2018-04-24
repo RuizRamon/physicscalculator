@@ -21,10 +21,11 @@ namespace Solver
 			
 			vector<Chapter*> chapters; //vector of chapters
 			
-			void openBook();
+			void openPage(bool manual);
 			void initBook();
 			void addChapter(int problems);
 			Chapter* getChapter(int n);
+			
 			Book(int choice)
 			{
 				path = "files\\";

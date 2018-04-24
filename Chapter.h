@@ -12,8 +12,9 @@ namespace Solver
 			int numProbs;
 			
 			Problem* getProblem(int n);
-			void addProblem(string text);
+			void addProblem(Problem* p);
 			void initChapter();
+			
 			Chapter(int num)
 			{
 				this->numProbs = num;

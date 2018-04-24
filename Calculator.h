@@ -25,9 +25,6 @@ namespace Solver
 		int menu;
 		bool exit = false;
 		double temp = 0;
-		int* t;
-		double* ans;
-		double* var;
 		
 		double* ans;
 		double* var;
