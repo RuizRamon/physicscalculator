@@ -1,11 +1,18 @@
-#pragma once
-#ifndef MAIN_HEADER_H
-#define MAIN_HEADER_H
+#ifndef CALC_H
+#define CALC_H
+
+#define M_PI 3.14159265358979323846  /* pi */
+
+#include <iostream>
+#include <fstream>
+#include <stdlib.h>
+#include <cstdlib>
+#include <math.h>
 #include <windows.h>
-//
-//#include <iostream>
-//#include <cstdlib>
-//#include <math.h>
+#include <vector>
+
+//Project includes
+#include "Book.h"
 using namespace std;
 
 namespace Solver
@@ -19,12 +26,46 @@ namespace Solver
 		bool exit = false;
 		double temp;
 		
+		double* ans;
+		double* var;
+		int* t;
+		
+		//Bruno
+		
+		vector<Book*> books;
+		
+		//Bruno
 	public:
+		
 		void menuprint();
 		void choices();
-		void openPDF(string path, bool book);
+		
 		void startup(LPCTSTR lpApplicationName);
 		
+		//Bruno
+		void openBook(Book* book);
+		void displayBooks();
+		
+		int librarySize();
+		int currentBook;
+		Book* nowBook();
+		string getPage(int page);
+		
+		Calculator()
+		{
+		
+			initCalc();
+			
+			
+		}
+		~Calculator()
+		{
+			
+		}
+		
+		void initCalc();
+		
+		//Bruno
 	};
 
 }

@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = Calculator.o main.o
-LINKOBJ  = Calculator.o main.o
+OBJ      = Calculator.o main.o Book.o Problem.o Chapter.o
+LINKOBJ  = Calculator.o main.o Book.o Problem.o Chapter.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -L"C:/Users/admin/Documents/C++/SFML-2.4.2/lib" -L"C:/Users/admin/Documents/C++/DSPFilters/shared/DSPFilters/source" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"C:/Users/admin/Documents/C++/SFML-2.4.2/include" -I"C:/Users/admin/Documents/C++/DSPFilters/shared/DSPFilters/include"
@@ -29,3 +29,12 @@ Calculator.o: Calculator.cpp
 
 main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Book.o: Book.cpp
+	$(CPP) -c Book.cpp -o Book.o $(CXXFLAGS)
+
+Problem.o: Problem.cpp
+	$(CPP) -c Problem.cpp -o Problem.o $(CXXFLAGS)
+
+Chapter.o: Chapter.cpp
+	$(CPP) -c Chapter.cpp -o Chapter.o $(CXXFLAGS)

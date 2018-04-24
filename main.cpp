@@ -2,26 +2,75 @@
 #include <fstream>
 #include <stdlib.h>
 #include <unordered_map>
+
+
 #include "Calculator.h"
 
 using namespace std;
 
 using namespace Solver;
 
-int choice;
+int choice, bookNum;
 int chapter;
 int problem;
 int menu;
 
+
+void showLogo()
+{
+	cout <<"     +  +                        +           +  +  " << endl;
+	cout <<"     |  |         +---------------+          |  |  " << endl;
+	cout <<"     |  |         |----------------+         |  |" << endl;
+	cout <<"     +  +         +---------------+          +  +" << endl;
+	cout <<"                                 +      +            +" << endl;
+	cout <<"+------------+                          +------------+" << endl;
+	cout << endl;
+	cout <<"    +---+ " << endl;
+	cout <<"    +   |                                          +-+" << endl;
+	cout <<"        |                                        +-+" << endl;
+	cout <<"      +-+                                      +--+" << endl;
+	cout <<"      |                                 +     ++" << endl;
+	cout <<"      |                                 +-  ++" << endl;
+	cout <<"     +-+                                ---+" << endl;
+	cout <<"     +-+" << endl;
+
+}
 int main()
 {
-//	unordered_map<string key, string value> t = {
-//	
-//	};
-	bool exit = false;
+
+	bool exit(false), bookChoice(false);
 	Calculator calcmenu;
-	calcmenu.openPDF("", 0);
-//	calcmenu.startup("notepad.exe");
+	
+	//bruno
+	cout << "Homework Helper v0.0.1" << endl;
+	showLogo();
+	system("pause");
+	system("cls");
+		
+		
+	bookNum = -1;
+	while(!bookChoice)
+	{
+		cout << "Pick a book to study:" << endl;
+		calcmenu.displayBooks();
+
+		cin >> bookNum;
+		
+		if(bookNum >= calcmenu.librarySize() || bookNum < 0)
+		{
+			cout << "Invalid choice" << endl;
+		}
+		else
+		{
+			bookChoice = true;
+			calcmenu.currentBook = bookNum;
+		}
+		
+	}
+	
+	
+	//bruno
+
 	//IF USER NEVER EXITED, RUN THROUGH PROGRAM
 	while (exit != true)
 	{
