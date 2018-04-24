@@ -37,7 +37,6 @@ namespace Solver
 		
 		
 		
-		
 	}
 	void Chapter::addProblem(Problem* p)
 	{
