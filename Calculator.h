@@ -24,7 +24,10 @@ namespace Solver
 		int problem;
 		int menu;
 		bool exit = false;
-		double temp;
+		double temp = 0;
+		int* t;
+		double* ans;
+		double* var;
 		
 		double* ans;
 		double* var;
