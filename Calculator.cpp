@@ -58,7 +58,8 @@ void Calculator::menuprint()
 	cout << " 1 - Get solution." << endl;
 	cout << " 2 - Find similar." << endl;
 	cout << " 3 - Steps." << endl;
-	cout << " 4 - Exit." << endl;
+	cout << " 4 - Request a solution." << endl;
+	cout << " 5 - Exit." << endl;
 	cout << endl << "This calculator is programmed for " << books.at(currentBook)->name << endl;
 	cout << endl << "Enter your choice and press enter: ";
 }
@@ -357,9 +358,11 @@ void Calculator::choices()
 			cout << "Enter a problem you want the steps for" << endl;
 			// rest of code
 			break;
-		case 4:	//CLOSE THE PROGRAM
+		case 4: //REQUEST A SOLUTION AND PRINTS TO TEXT FILE
+			break;
+		case 5:	//CLOSE THE PROGRAM
 			cout << endl << "Are you sure you want to exit?" << endl;
-			break;	
+			break;
 		default: //IF USER DOESNT ENTER A VALID OPTION IT WILL CONTINUE TO LOOP TO THE MENU SCREEN, SKIPPING THE FIRST MENU OPTION OF 0 OR 4
 		{
 			menuprint();
