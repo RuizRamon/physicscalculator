@@ -20,8 +20,8 @@ namespace Solver
 {
 	class Calculator
 	{
-		
-		int choice;
+		/*variables used for calculator menu control*/
+		int choice; 
 		int chapter;
 		int problem;
 		int menu;
@@ -32,50 +32,39 @@ namespace Solver
 		double* var;
 		int* t;
 		
-		//Bruno
+		vector<Book> books; //vector to hold Book objects
 		
-		vector<Book> books;
-		
-		//Bruno
 	public:
-		string pdfPath;
-		string browserPath;
-		void menuprint();
-		void choices();
+		string pdfPath; 						//path to PDFs folder (textbooks)
+		string browserPath; 					//path to executable for web browser
+		int currentBook; 						//the book # in the books vector the user has chosen
 		
-		void startup(LPCTSTR lpApplicationName);
+		void initCalc(); 						//initialize library of books
+		void menuprint(); 						//print the options of the menu
+		void choices(); 						//assess menu choice
+		void openBook(int pageNum, bool manual);//open page number in either textbook or textbook manual
+		void searchBook(int ch, int pr); 		//search and open textbook manual for specific problem #
+		void displayBooks(); 					//display the library of books
 		
-		//Bruno
-		void openBook(int pageNum, bool manual);
-		void searchBook(int ch, int pr);
-		void displayBooks();
+		int librarySize(); 						//return the amount of books in library
 		
-		int librarySize();
-		int currentBook;
-		Book& nowBook();
-		string getPage(int page);
+		Book& nowBook();	 					//return reference to the current book user is studying with
+		string getPage(int page); 				//build search query with specified page number
 		
+		
+		/*calls initCalc() which sets up the library of books
+		also stores the filepath to the library directory
+		and browser*/
 		Calculator(string path, string browser)
 		{
-//			cout << "path in calc " << endl;
-//			cout << path << endl;
 			browserPath = browser;
 			pdfPath = path;
 			initCalc();
-			
-			
 		}
 		~Calculator()
 		{
-//			for(int i=0; i<books.size(); i++)
-//			{
-//				delete books.at(i);
-//			}
+
 		}
-		
-		void initCalc();
-		
-		//Bruno
 	};
 
 }

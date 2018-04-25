@@ -7,49 +7,55 @@ using namespace std;
 
 namespace Solver
 {
-//Bruno
-
+	
 Book& Calculator::nowBook()
 {
-	return books.at(currentBook);
+	return books.at(currentBook); //return current book chosen by user
 }
 void Calculator::initCalc()
 {
 	/*Initialize books vector to store our books*/
 	Book temp(0);		
-	books.push_back(temp); //physics
+	books.push_back(temp); //0=physics
+	
+	/*Implement more books here*/
 }
 
 string Calculator::getPage(int page)
 {
-	return "#page=" + to_string(page);
+	return "#page=" + to_string(page); //return query to search pdf with given page
 }
 int Calculator::librarySize()
 {
-	return books.size();
+	return books.size(); 
 }
 void Calculator::displayBooks()
 {
+	/*loop to show the current library*/
 	for(int i=0; i< books.size(); i++)
 	{
 		cout << "Book #: " << i << " " << books.at(i).name << endl;
 	}
 }
+
 //#search=1
 void Calculator::openBook(int pageNum, bool manual)
 {
-	string link = "file:///" + pdfPath;
+	string link = "file:///" + pdfPath;		//formulate web-link to an internal file
 //	cout << "Path given " << pdfPath << endl;
-	if(manual)
+
+	if(manual) //if manual is true, then open a page in the manual
 	{
 		link += nowBook().pathManual;
 		link += nowBook().pageAppend + to_string(pageNum);
 	}
-	else
+	
+	else	//open a page in the textbook
 	{
 		link+= nowBook().path;
 		link+= nowBook().pageAppend + to_string(pageNum);
 	}
+	
 //	cout << link << endl;
 //	string firefox = "\"C:\\Program Files\\Mozilla Firefox\\firefox.exe\"";
 //	string chrome =  "\"C:\\Program Files(x86)\\Google\\chrome\\application\\chrome.exe\"";
@@ -71,17 +77,17 @@ void Calculator::openBook(int pageNum, bool manual)
 
 void Calculator::searchBook(int ch, int pr)
 {
-	string query = to_string(ch) + "." + to_string(pr) + ".";
+	string query = to_string(ch) + "." + to_string(pr) + "."; //the period after 3.1. makes the search spot on (unique)
 	string link = "file:///" + pdfPath;
 	
-	link += nowBook().pathManual;
-	link += nowBook().searchAppend + query;
+	link += nowBook().pathManual; //append name of manual.pdf
+	link += nowBook().searchAppend + query; //append searchquery
 	
 //	cout << query << endl;
 //	cout << link << endl;
 	
-	string execute = browserPath + " " + link;
-	system(execute.c_str());
+	string execute = browserPath + " " + link; //build executable command
+	system(execute.c_str()); //execute command and open browser with specified internal PDF
 }
 
 //Bruno
@@ -101,7 +107,7 @@ void Calculator::menuprint()
 void Calculator::choices() 
 {
 
-	Problem* prob;
+	Problem* prob; //temporary problem pointer used to access a book chapter's problem
 	string requestSolution;
 	ofstream myFile;
 	
@@ -126,21 +132,23 @@ void Calculator::choices()
 							cout << endl;
 							switch (problem)	//OPTIONS FOR PROBLEMS WITHIN CHAPTER 3
 							{
-							case 1:
-								system("cls");	//CLEAR SCREEN
+							case 1: /*Using classes to represent problem solving*/
+								
+								system("cls");
 								prob = &nowBook().getChapter(2).getProblem(0);
 								prob->initProblem();
-//								openBook(prob->page,0);
 								
 								break;
-							case 2:
-								system("cls");	//CLEAR SCREEN
+							case 2: /*Using classes to represent problem solving*/
+								
+								system("cls");
 								prob = &nowBook().getChapter(2).getProblem(1);
 								prob->initProblem();
 								
 								break;
 
 							case 3:
+								
 								system("cls");	//CLEAR SCREEN
 								cout << "Solution for Problem 3.3..." << endl << endl;
 								cout << "Problem Text:" << endl;

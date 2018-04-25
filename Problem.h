@@ -12,34 +12,31 @@ namespace Solver
 {
 	class Problem
 	{
-		
-	//	vector<string> prompts;
 		public:
-			string problemText;
-			int numProblem;
+			string problemText;			//wording of the problem
+			int numProblem;				//number of problem with respect to the chapter
 			int page;
 			
-			vector<string> varPrompts;
-			vector<double> vars;
+			vector<string> varPrompts;	//stores prompts that will be used to receive input from user
+			vector<double> vars;		//stores variables received from input by user
 			
-			vector<string> answerPrompts;
-			vector<double> answers;
+			vector<string> answerPrompts;	//stores text used to provide answers
+			vector<double> answers;			//stores the answers for the problem
 			
-			void promptVar();
-			void displayAns();
-			void initProblem();
+			void promptVar();				//receive input from the user for storing variables
+			void displayAns();				//display answer(s) to problem
+			void initProblem();				//begin to solve the problem, walk the user through required inputs
+			void solve(int num);			//what number of problem to solve?
 			
-			void solve(int num);
+			void addVarPrompt(string p);	//add a variable prompt that will be shown the user
+			void addAnsPrompt(string ap);	//add an answer text sentence to represent answer, includes m/s, degrees, etc
 			
-			void addVarPrompt(string p);
-			void addAnsPrompt(string ap);
-			
-			
-			Problem(string text)
-			{
-				this->problemText = text;
-//				initProblem();
-			}
+			/*Construct problem out of its actual textbook number,
+			The problem text,
+			The page number in the textbook,
+			including the variable prompts to the user,
+			and the answer prompts to the user (how answers are displayed)
+			*/
 			Problem(int numProb, string text, int page, vector<string> varPrompts, vector<string> ansPrompts)
 			{
 				this->problemText = text;
@@ -47,13 +44,7 @@ namespace Solver
 				this->varPrompts = varPrompts;
 				this->answerPrompts = ansPrompts;
 				numProblem = numProb;
-//				initProblem();
 			}
-			Problem()
-			{
-				
-			}
-			
 			
 			~Problem()
 			{

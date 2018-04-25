@@ -16,6 +16,7 @@ int problem;
 int menu;
 
 
+/*Output Homework Helper logo to console*/
 void showLogo()
 {
 	cout <<"     +  +                        +           +  +  " << endl;
@@ -35,6 +36,8 @@ void showLogo()
 	cout <<"     +-+" << endl;
 
 }
+
+
 int main()
 {
 
@@ -42,6 +45,8 @@ int main()
 	bool exit(false), bookChoice(false);
 	string path;
 	string browser;
+	
+	/*prompt for file path*/
 	cout << "Enter file path to program directory folder with trailing slash" << endl;
 	cout << "Example: C:/Users/admin/Documents/GitHub/physicscalculator/" << endl;
 	
@@ -49,6 +54,7 @@ int main()
 	
 	cout << "Read: \n> " << path << endl << endl;
 	
+	/*prompt for browser path*/
 	int browserchoice = 0;
 	cout << "Which one is your browser path? Choose a number:" << endl;
 	cout << "1: C:\\Program Files\\Mozilla Firefox\\firefox.exe" << endl;
@@ -59,6 +65,7 @@ int main()
 	
 	cin >> browserchoice;
 	
+	/*Selects browser path*/
 	switch(browserchoice)
 	{
 		case 1:
@@ -82,16 +89,17 @@ int main()
 	}
 	
 	
-	
+	/*Instantiates a new calculator, 
+	and stores directory and browser path in two strings*/
 	Calculator calcmenu(path, browser);
 	
-	//bruno
 	cout << "Homework Helper v0.0.1" << endl;
 	showLogo();
 	system("pause");
 	system("cls");
 		
 		
+	/*prompt for book choice, keep in loop if invalid choice*/
 	bookNum = -1;
 	while(!bookChoice)
 	{
@@ -112,8 +120,6 @@ int main()
 		
 	}
 	
-	
-	//bruno
 
 	//IF USER NEVER EXITED, RUN THROUGH PROGRAM
 	while (exit != true)

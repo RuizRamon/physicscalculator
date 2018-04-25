@@ -8,24 +8,22 @@ namespace Solver
 	class Chapter 
 	{
 		public:
-			vector<Problem> problems;
-			int numProbs;
+			vector<Problem> problems;	//stores problems in a chapter
+			int numProbs;				//how many problems does this chapter need to have?
 			
-			Problem& getProblem(int n);
-			void addProblem(Problem& p);
-			void initChapter();
+			void addProblem(Problem& p);//add problem to vector
+			void initChapter();			//build chapter, add problems to vector
 			
-			Chapter(int num)
+			Problem& getProblem(int n); //returns reference to problem of interest
+			
+			Chapter(int num)			//bring in the required number of problems
 			{
 				this->numProbs = num;
 				initChapter();
 			}
 			~Chapter()
 			{
-//				for(int i=0; i<problems.size(); i++)
-//				{
-//					delete problems.at(i);
-//				}
+				
 			}
 	};
 }

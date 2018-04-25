@@ -57,13 +57,16 @@ namespace Solver
 		aPrompts.clear();
 		problemText = "";
 		
+		//Problem 3--> N (future development)
+		
+		
 	}
-	void Chapter::addProblem(Problem& p)
+	void Chapter::addProblem(Problem& p)	//add problem to vector
 	{
 		problems.push_back(p);
 	}
 	
-	Problem& Chapter::getProblem(int n)
+	Problem& Chapter::getProblem(int n)		//return reference to problem of interest
 	{
 		return problems.at(n);
 	}
