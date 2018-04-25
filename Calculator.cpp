@@ -75,7 +75,8 @@ void Calculator::menuprint()
 	cout << " 1 - Get solution." << endl;
 	cout << " 2 - Find similar." << endl;
 	cout << " 3 - Steps." << endl;
-	cout << " 4 - Exit." << endl;
+	cout << " 4 - Request a solution." << endl;
+	cout << " 5 - Exit." << endl;
 	cout << endl << "This calculator is programmed for " << nowBook().name << endl;
 	cout << endl << "Enter your choice and press enter: ";
 }
