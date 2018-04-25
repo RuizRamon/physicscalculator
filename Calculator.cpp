@@ -130,7 +130,7 @@ void Calculator::choices()
 								system("cls");	//CLEAR SCREEN
 								prob = &nowBook().getChapter(2).getProblem(0);
 								prob->initProblem();
-								openBook(prob->page,0);
+//								openBook(prob->page,0);
 								
 								break;
 							case 2:
