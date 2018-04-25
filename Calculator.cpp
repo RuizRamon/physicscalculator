@@ -302,19 +302,19 @@ void Calculator::choices()
 						cout << endl;
 						switch (problem)	//OPTIONS FOR PROBLEMS WITHIN CHAPTER 3
 						{
-						case 1:
+						case 1: //SIMILIAR PROBLEMS TO 3.1
 							cout << "Problem 1 in chapter 3 of the 13th edition is the same as problem 1 in chapter 3 of the 12th edition." << endl;
 							cout << "Notable Variable Changes:" << " NONE" << endl;
 							break;
-						case 2:
+						case 2: //SIMILIAR PROBLEMS TO 3.2
 							cout << "Problem 2 in chapter 3 of the 13th edition is the same as problem 2 in chapter 3 of the 12th edition." << endl;
 							cout << "Notable Variable Changes:" << " NONE" << endl;
 							break;
-						case 3:
+						case 3: //SIMILIAR PROBLEMS TO 3.3
 							cout << "Problem 3 in chapter 3 of the 13th edition is the same as problem 3 in chapter 3 of the 12th edition." << endl;
 							cout << "Notable Variable Changes:" << " NONE" << endl;
 							break;
-						case 4:
+						case 4: //SIMILIAR PROBLEMS TO 3.4
 							cout << "Problem 4 in chapter 3 of the 13th edition is not found in the 12th edition." << endl;
 							break;
 						}
@@ -363,8 +363,8 @@ void Calculator::choices()
 			cout << "Please type your question below: ";
 			getline(cin, requestSolution);
 			myFile << endl;
-			myFile << requestSolution;
-			myFile.close();
+			myFile << requestSolution;//WRITES TO TEXT FILE
+			myFile.close(); //MAKE SURE THE FILE IS CLOSED FOR WRITING
 			break;
 		case 5:	//CLOSE THE PROGRAM
 			cout << endl << "Are you sure you want to exit?" << endl;
