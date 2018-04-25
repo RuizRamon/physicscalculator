@@ -9,14 +9,15 @@ namespace Solver
 		
 		cout << "Solution for Problem 3.1..." << endl << endl;
 		cout << "Problem Text:" << endl;
-		cout << problemText << endl;;
+		cout << problemText << endl;
+		
 		promptVar();
 		solve(numProblem);
 		displayAns();
 		
 		//empty vectors for answers and variables
-		vars.empty();
-		answers.empty();
+		vars.clear();
+		answers.clear();
 		
 		cout << vars.size() << endl;
 		cout << answers.size() << endl;

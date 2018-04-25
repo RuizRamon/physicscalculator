@@ -8,11 +8,11 @@ namespace Solver
 	class Chapter 
 	{
 		public:
-			vector<Problem*> problems;
+			vector<Problem> problems;
 			int numProbs;
 			
-			Problem* getProblem(int n);
-			void addProblem(Problem* p);
+			Problem& getProblem(int n);
+			void addProblem(Problem& p);
 			void initChapter();
 			
 			Chapter(int num)
@@ -22,10 +22,10 @@ namespace Solver
 			}
 			~Chapter()
 			{
-				for(int i=0; i<problems.size(); i++)
-				{
-					delete problems.at(i);
-				}
+//				for(int i=0; i<problems.size(); i++)
+//				{
+//					delete problems.at(i);
+//				}
 			}
 	};
 }

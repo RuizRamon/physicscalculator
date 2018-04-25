@@ -23,9 +23,10 @@ namespace Solver
 	}
 	void Book::addChapter(int problems)
 	{
-		chapters.push_back(new Chapter(problems));
+		Chapter temp(problems);
+		chapters.push_back(temp);
 	}
-	Chapter* Book::getChapter(int n)
+	Chapter& Book::getChapter(int n)
 	{
 		return chapters.at(n);
 	}

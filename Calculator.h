@@ -34,7 +34,7 @@ namespace Solver
 		
 		//Bruno
 		
-		vector<Book*> books;
+		vector<Book> books;
 		
 		//Bruno
 	public:
@@ -50,7 +50,7 @@ namespace Solver
 		
 		int librarySize();
 		int currentBook;
-		Book* nowBook();
+		Book& nowBook();
 		string getPage(int page);
 		
 		Calculator(string path)
@@ -62,10 +62,10 @@ namespace Solver
 		}
 		~Calculator()
 		{
-			for(int i=0; i<books.size(); i++)
-			{
-				delete books.at(i);
-			}
+//			for(int i=0; i<books.size(); i++)
+//			{
+//				delete books.at(i);
+//			}
 		}
 		
 		void initCalc();

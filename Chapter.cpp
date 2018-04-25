@@ -4,7 +4,7 @@ namespace Solver
 	void Chapter::initChapter()
 	{
 		//temp variables
-		Problem* temp;
+		
 		vector<string> vPrompts;
 		vector<string> aPrompts;
 		
@@ -25,11 +25,10 @@ namespace Solver
 		aPrompts.push_back("Direction of average velocity in degrees: ");
 		
 		//add Problem to chapter
-		temp = new Problem(1, prob1, 96, vPrompts, aPrompts);
+		Problem temp = Problem(1, prob1, 96, vPrompts, aPrompts);
 		addProblem(temp);
 		
 		//reuse temp variables
-		temp = nullptr;
 		
 		vPrompts.clear();
 		aPrompts.clear();
@@ -37,15 +36,13 @@ namespace Solver
 		
 		//Problem 2
 		
-		
-		delete temp;
 	}
-	void Chapter::addProblem(Problem* p)
+	void Chapter::addProblem(Problem& p)
 	{
 		problems.push_back(p);
 	}
 	
-	Problem* Chapter::getProblem(int n)
+	Problem& Chapter::getProblem(int n)
 	{
 		return problems.at(n);
 	}

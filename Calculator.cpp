@@ -9,14 +9,15 @@ namespace Solver
 {
 //Bruno
 
-Book* Calculator::nowBook()
+Book& Calculator::nowBook()
 {
 	return books.at(currentBook);
 }
 void Calculator::initCalc()
 {
-	/*Initialize books vector to store our books*/		
-	books.push_back(new Book(0)); //physics
+	/*Initialize books vector to store our books*/
+	Book temp(0);		
+	books.push_back(temp); //physics
 }
 
 string Calculator::getPage(int page)
@@ -31,7 +32,7 @@ void Calculator::displayBooks()
 {
 	for(int i=0; i< books.size(); i++)
 	{
-		cout << "Book #: " << i << " " << books.at(i)->name << endl;
+		cout << "Book #: " << i << " " << books.at(i).name << endl;
 	}
 }
 //#search=1
@@ -44,7 +45,7 @@ void Calculator::openBook(int pageNum)
 
 	string query = "";
 	
-	string link = "file:///" + pdfPath + nowBook()->pathManual;
+	string link = "file:///" + pdfPath + nowBook().pathManual;
 //	link + =
 	
 //	const char* text_application = " \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" ";
@@ -75,18 +76,18 @@ void Calculator::menuprint()
 	cout << " 2 - Find similar." << endl;
 	cout << " 3 - Steps." << endl;
 	cout << " 4 - Exit." << endl;
-	cout << endl << "This calculator is programmed for " << books.at(currentBook)->name << endl;
+	cout << endl << "This calculator is programmed for " << nowBook().name << endl;
 	cout << endl << "Enter your choice and press enter: ";
 }
 void Calculator::choices() 
 {
-<<<<<<< HEAD
+
 	//Problem* prob;
-=======
+
 	string requestSolution;
 	ofstream myFile;
 	Problem* prob;
->>>>>>> dfe99b4c45ce928989d114c9c2a4990d7fac1b84
+
 	cin >> choice;
 	switch (choice)
 	{
@@ -110,9 +111,10 @@ void Calculator::choices()
 							case 1:
 								
 								system("cls");	//CLEAR SCREEN
+								prob = &nowBook().getChapter(2).getProblem(0);
+								prob->initProblem();
 								
-								nowBook()->getChapter(2)->getProblem(0)->initProblem();
-								openBook(nowBook()->getChapter(2)->getProblem(0)->page);
+//								openBook(nowBook()->getChapter(2)->getProblem(0)->page);
 								
 								
 								break;
@@ -405,9 +407,6 @@ void Calculator::choices()
 				}
 			}
 			break;
-<<<<<<< HEAD
-		case 4:	//CLOSE THE PROGRAM
-=======
 		case 4: //REQUEST A SOLUTION AND PRINTS TO TEXT FILE
 			system("cls");
 			cin.ignore();
@@ -419,7 +418,6 @@ void Calculator::choices()
 			myFile.close();
 			break;
 		case 5:	//CLOSE THE PROGRAM
->>>>>>> dfe99b4c45ce928989d114c9c2a4990d7fac1b84
 			cout << endl << "Are you sure you want to exit?" << endl;
 			break;	
 		default: //IF USER DOESNT ENTER A VALID OPTION IT WILL CONTINUE TO LOOP TO THE MENU SCREEN, SKIPPING THE FIRST MENU OPTION OF 0 OR 4
@@ -429,7 +427,7 @@ void Calculator::choices()
 			//break;
 		}
 		
-//		delete prob;
+		delete prob;
 	}
 }
 }

@@ -19,12 +19,12 @@ namespace Solver
 			string searchAppend = "#search=";
 			string pageAppend = "#page=";
 			
-			vector<Chapter*> chapters; //vector of chapters
+			vector<Chapter> chapters; //vector of chapters
 			
 			void openPage(bool manual);
 			void initBook();
 			void addChapter(int problems);
-			Chapter* getChapter(int n);
+			Chapter& getChapter(int n);
 			
 			Book(int choice)
 			{
@@ -46,10 +46,10 @@ namespace Solver
 			
 			~Book()
 			{
-				for(int i=0; i<chapters.size(); i++)
-				{
-					delete chapters.at(i);
-				}
+//				for(int i=0; i<chapters.size(); i++)
+//				{
+//					delete chapters.at(i);
+//				}
 			}
 	};
 }
