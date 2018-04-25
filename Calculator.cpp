@@ -65,6 +65,8 @@ void Calculator::menuprint()
 }
 void Calculator::choices() 
 {
+	string requestSolution;
+	ofstream myFile;
 	Problem* prob;
 	cin >> choice;
 	switch (choice)
@@ -355,6 +357,14 @@ void Calculator::choices()
 			// rest of code
 			break;
 		case 4: //REQUEST A SOLUTION AND PRINTS TO TEXT FILE
+			system("cls");
+			cin.ignore();
+			myFile.open("requestSolution.txt", ios::out | ios::app);
+			cout << "Please type your question below: ";
+			getline(cin, requestSolution);
+			myFile << endl;
+			myFile << requestSolution;
+			myFile.close();
 			break;
 		case 5:	//CLOSE THE PROGRAM
 			cout << endl << "Are you sure you want to exit?" << endl;
