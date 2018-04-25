@@ -295,12 +295,16 @@ void Calculator::choices()
 						switch (problem)	//OPTIONS FOR PROBLEMS WITHIN CHAPTER 3
 						{
 						case 1:
+							cout << "Problem 1 in chapter 3 of the 13th edition is the same as problem 3 in chapter 3 of the 12th edition." << endl;
 							break;
 						case 2:
+							cout << "Problem 2 in chapter 3 of the 13th edition is the same as problem 4 in chapter 3 of the 12th edition." << endl;
 							break;
 						case 3:
+							cout << "Problem 3 in chapter 3 of the 13th edition is not found in the 12th edition." << endl;
 							break;
 						case 4:
+							cout << "Problem 4 in chapter 3 of the 13th edition is the same as problem 5 in chapter 3 of the 12th edition." << endl;
 							break;
 						}
 					}
@@ -343,8 +347,8 @@ void Calculator::choices()
 			break;
 		case 4: //REQUEST A SOLUTION AND PRINTS TO TEXT FILE
 			system("cls");
-			cin.ignore();
-			myFile.open("requestSolution.txt", ios::out | ios::app);
+			cin.ignore(); //MUST BE USED FOR GETLINE TO NOT GO DIRECTLY TO BREAK
+			myFile.open("requestSolution.txt", ios::out | ios::app); // OUT WRITES TO THE FILE AND APP APPENDS
 			cout << "Please type your question below: ";
 			getline(cin, requestSolution);
 			myFile << endl;
