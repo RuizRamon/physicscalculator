@@ -20,7 +20,7 @@ namespace Solver
 {
 	class Calculator
 	{
-		string pdfPath;
+		
 		int choice;
 		int chapter;
 		int problem;
@@ -38,14 +38,16 @@ namespace Solver
 		
 		//Bruno
 	public:
-		
+		string pdfPath;
+		string browserPath;
 		void menuprint();
 		void choices();
 		
 		void startup(LPCTSTR lpApplicationName);
 		
 		//Bruno
-		void openBook(int pageNum);
+		void openBook(int pageNum, bool manual);
+		void searchBook(int ch, int pr);
 		void displayBooks();
 		
 		int librarySize();
@@ -53,9 +55,12 @@ namespace Solver
 		Book& nowBook();
 		string getPage(int page);
 		
-		Calculator(string path)
+		Calculator(string path, string browser)
 		{
-			path = pdfPath;
+//			cout << "path in calc " << endl;
+//			cout << path << endl;
+			browserPath = browser;
+			pdfPath = path;
 			initCalc();
 			
 			

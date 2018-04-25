@@ -16,8 +16,8 @@ namespace Solver
 			string pathManual; //path to manual of book
 			string name; //name of book
 			
-			string searchAppend = "#search=";
-			string pageAppend = "#page=";
+			const string searchAppend = "#search=";
+			const string pageAppend = "#page=";
 			
 			vector<Chapter> chapters; //vector of chapters
 			

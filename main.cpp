@@ -41,14 +41,49 @@ int main()
 // file:///C:/Users/admin/Documents/GitHub/physicscalculator/files/solnphysics.pdf
 	bool exit(false), bookChoice(false);
 	string path;
-	
+	string browser;
 	cout << "Enter file path to program directory folder with trailing slash" << endl;
 	cout << "Example: C:/Users/admin/Documents/GitHub/physicscalculator/" << endl;
 	
-	cin >> path;
+	getline(cin, path);
+	
+	cout << "Read: \n> " << path << endl << endl;
+	
+	int browserchoice = 0;
+	cout << "Which one is your browser path? Choose a number:" << endl;
+	cout << "1: C:\\Program Files\\Mozilla Firefox\\firefox.exe" << endl;
+	cout << "2: C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" << endl;
+	cout << "3: C:\\Program Files\\Google\\chrome\\application\\chrome.exe" << endl;
+	cout << "4: C:\\Program Files (x86)\\Google\\chrome\\application\\chrome.exe" << endl;
+	cout << "5: I want to enter my own browser path (use quotes)" << endl;
+	
+	cin >> browserchoice;
+	
+	switch(browserchoice)
+	{
+		case 1:
+			browser = "\"C:\\Program Files\\Mozilla Firefox\\firefox.exe\"";
+			break;
+		case 2:
+			browser = "\"C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe\"";
+			break;
+		case 3:
+			browser = "\"C:\\Program Files\\Google\\chrome\\application\\chrome.exe\"";
+			break;
+		case 4:
+			browser = "\"C:\\Program Files (x86)\\Google\\chrome\\application\\chrome.exe\"";
+			break;
+		case 5:
+			getline(cin, browser);
+			cout << "Read: \n> " << browser << endl << endl;
+			break;
+		default:
+			break;
+	}
 	
 	
-	Calculator calcmenu(path);
+	
+	Calculator calcmenu(path, browser);
 	
 	//bruno
 	cout << "Homework Helper v0.0.1" << endl;

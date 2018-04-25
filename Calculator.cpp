@@ -36,34 +36,52 @@ void Calculator::displayBooks()
 	}
 }
 //#search=1
-void Calculator::openBook(int pageNum)
+void Calculator::openBook(int pageNum, bool manual)
 {
-//	const char * text_filename = (nowBook()->pathManual + getPage(pageNum)).c_str();
-//	const char * command = "open ";
-//	cout << nowBook()->pathManual << endl;
-//	cout << text_filename << endl;
+	string link = "file:///" + pdfPath;
+//	cout << "Path given " << pdfPath << endl;
+	if(manual)
+	{
+		link += nowBook().pathManual;
+		link += nowBook().pageAppend + to_string(pageNum);
+	}
+	else
+	{
+		link+= nowBook().path;
+		link+= nowBook().pageAppend + to_string(pageNum);
+	}
+//	cout << link << endl;
+//	string firefox = "\"C:\\Program Files\\Mozilla Firefox\\firefox.exe\"";
+//	string chrome =  "\"C:\\Program Files(x86)\\Google\\chrome\\application\\chrome.exe\"";
+	
+	
+	string execute = browserPath + " " + link;
+	cout << execute << endl;
+	system(execute.c_str());
+//	ShellExecute(NULL, "open", link.c_str(), NULL, NULL, SW_SHOWNORMAL);
+	
+	
+//	ShellExecute(NULL, "open", execute.c_str(), NULL, NULL, SW_SHOWNORMAL);
+	// \"%programfiles%\\Mozilla Firefox\\firefox.exe\"
+//	system("\"%programfiles%\\Mozilla Firefox\\firefox.exe\" google.com");
+//	ShellExecute(NULL, "\"C:\\Program Files\\Mozilla Firefox\\firefox.exe\"", link.c_str(), NULL, NULL, SW_SHOWNORMAL);
+//	ShellExecute(NULL, "\"%programfiles%\\Mozilla Firefox\\firefox.exe\"", link.c_str(), NULL, NULL, SW_SHOWNORMAL);
 
-	string query = "";
-	
-	string link = "file:///" + pdfPath + nowBook().pathManual;
-//	link + =
-	
-//	const char* text_application = " \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" ";
-//	
-//	string system_str;
-//	
-//	system_str = text_application;
-//	system_str += " ";
-//	system_str += text_filename;
-	
-	// Execute the application
-//	system(string("start " + text_filename).c_str());
-//    ShellExecute (GetDesktopWindow(), "start", text_filename, NULL, NULL, SW_SHOWNORMAL);
+}
 
-//	ShellExecute(0, 0, L"http://www.google.com", 0, 0 , SW_SHOW );
+void Calculator::searchBook(int ch, int pr)
+{
+	string query = to_string(ch) + "." + to_string(pr) + ".";
+	string link = "file:///" + pdfPath;
 	
-	ShellExecute(NULL, "open", "file:///C:/Users/admin/Documents/GitHub/physicscalculator/files/solnphysics.pdf", NULL, NULL, SW_SHOWNORMAL);
-    cout << endl << " In open book" << endl;
+	link += nowBook().pathManual;
+	link += nowBook().searchAppend + query;
+	
+//	cout << query << endl;
+//	cout << link << endl;
+	
+	string execute = browserPath + " " + link;
+	system(execute.c_str());
 }
 
 //Bruno
@@ -112,6 +130,7 @@ void Calculator::choices()
 								system("cls");	//CLEAR SCREEN
 								prob = &nowBook().getChapter(2).getProblem(0);
 								prob->initProblem();
+								openBook(prob->page,0);
 								
 								break;
 							case 2:
@@ -308,16 +327,16 @@ void Calculator::choices()
 				switch (problem)	//OPTIONS FOR PROBLEMS WITHIN CHAPTER 3
 				{
 				case 1:
-					cout << "this should open pdf to 3.1" << endl;
+					searchBook(3, 1);
 					break;
 				case 2:
-					cout << "this should open pdf to 3.2" << endl;
+					searchBook(3, 2);
 					break;
 				case 3:
-					cout << "this should open pdf to 3.3" << endl;
+					searchBook(3, 3);
 					break;
 				case 4:
-					cout << "this should open pdf to 3.4" << endl;
+					searchBook(3, 4);
 					break;
 				}
 			}
