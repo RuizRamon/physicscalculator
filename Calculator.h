@@ -10,6 +10,7 @@
 #include <math.h>
 #include <windows.h>
 #include <vector>
+#include <string>
 
 //Project includes
 #include "Book.h"

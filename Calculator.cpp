@@ -1,5 +1,8 @@
 #include "Calculator.h"
-
+#include "Calculator.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 
 namespace Solver
@@ -77,7 +80,13 @@ void Calculator::menuprint()
 }
 void Calculator::choices() 
 {
+<<<<<<< HEAD
 	//Problem* prob;
+=======
+	string requestSolution;
+	ofstream myFile;
+	Problem* prob;
+>>>>>>> dfe99b4c45ce928989d114c9c2a4990d7fac1b84
 	cin >> choice;
 	switch (choice)
 	{
@@ -364,10 +373,53 @@ void Calculator::choices()
 					break;
 		case 3:	//IF USER CHOOSES TO VIEW STEPS
 			system("cls");
-			cout << "Enter a problem you want the steps for" << endl;
-			// rest of code
+			cout << "This option is to see what earlier edition chapter problems are the same as the problem you select." << endl;
+			cout << "Enter the chapter number and press enter: ";
+			cin >> chapter;
+			switch (chapter)
+			{
+			case 1:	//IF USER CHOOSES CHAPTER 1
+				cout << "Sorry we currently don't have chapter 1 solutions." << endl;
+				break;
+			case 2:	//IF USER CHOOSES CHAPTER 2
+				cout << "Sorry we currently don't have chapter 2 solutions." << endl;
+				break;
+			case 3:	//IF USER CHOOSES CHAPTER 3
+				cout << "Enter the problem number and press enter: ";
+				cin >> problem;
+				cout << endl;
+				switch (problem)	//OPTIONS FOR PROBLEMS WITHIN CHAPTER 3
+				{
+				case 1:
+					cout << "this should open pdf to 3.1" << endl;
+					break;
+				case 2:
+					cout << "this should open pdf to 3.2" << endl;
+					break;
+				case 3:
+					cout << "this should open pdf to 3.3" << endl;
+					break;
+				case 4:
+					cout << "this should open pdf to 3.4" << endl;
+					break;
+				}
+			}
 			break;
+<<<<<<< HEAD
 		case 4:	//CLOSE THE PROGRAM
+=======
+		case 4: //REQUEST A SOLUTION AND PRINTS TO TEXT FILE
+			system("cls");
+			cin.ignore();
+			myFile.open("requestSolution.txt", ios::out | ios::app);
+			cout << "Please type your question below: ";
+			getline(cin, requestSolution);
+			myFile << endl;
+			myFile << requestSolution;
+			myFile.close();
+			break;
+		case 5:	//CLOSE THE PROGRAM
+>>>>>>> dfe99b4c45ce928989d114c9c2a4990d7fac1b84
 			cout << endl << "Are you sure you want to exit?" << endl;
 			break;	
 		default: //IF USER DOESNT ENTER A VALID OPTION IT WILL CONTINUE TO LOOP TO THE MENU SCREEN, SKIPPING THE FIRST MENU OPTION OF 0 OR 4
