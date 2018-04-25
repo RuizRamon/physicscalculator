@@ -28,6 +28,9 @@ namespace Solver
 			void promptVar();
 			void displayAns();
 			void initProblem();
+			
+			const void initProblem() const;
+			
 			void solve(int num);
 			
 			void addVarPrompt(string p);

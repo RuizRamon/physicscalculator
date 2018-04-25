@@ -19,6 +19,7 @@ namespace Solver
 {
 	class Calculator
 	{
+		string pdfPath;
 		int choice;
 		int chapter;
 		int problem;
@@ -43,7 +44,7 @@ namespace Solver
 		void startup(LPCTSTR lpApplicationName);
 		
 		//Bruno
-		void openBook(Book* book);
+		void openBook(int pageNum);
 		void displayBooks();
 		
 		int librarySize();
@@ -51,16 +52,19 @@ namespace Solver
 		Book* nowBook();
 		string getPage(int page);
 		
-		Calculator()
+		Calculator(string path)
 		{
-		
+			path = pdfPath;
 			initCalc();
 			
 			
 		}
 		~Calculator()
 		{
-			
+			for(int i=0; i<books.size(); i++)
+			{
+				delete books.at(i);
+			}
 		}
 		
 		void initCalc();

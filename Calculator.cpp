@@ -14,7 +14,6 @@ void Calculator::initCalc()
 {
 	/*Initialize books vector to store our books*/		
 	books.push_back(new Book(0)); //physics
-
 }
 
 string Calculator::getPage(int page)
@@ -33,20 +32,34 @@ void Calculator::displayBooks()
 	}
 }
 //#search=1
-void Calculator::openBook(Book* book)
+void Calculator::openBook(int pageNum)
 {
-	const char * text_filename = (book->pathManual + getPage(4)).c_str();
-	const char* text_application = " \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" ";
+//	const char * text_filename = (nowBook()->pathManual + getPage(pageNum)).c_str();
+//	const char * command = "open ";
+//	cout << nowBook()->pathManual << endl;
+//	cout << text_filename << endl;
+
+	string query = "";
 	
-	string system_str;
+	string link = "file:///" + pdfPath + nowBook()->pathManual;
+//	link + =
 	
-	system_str = text_application;
-	system_str += " ";
-	system_str += text_filename;
+//	const char* text_application = " \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" ";
+//	
+//	string system_str;
+//	
+//	system_str = text_application;
+//	system_str += " ";
+//	system_str += text_filename;
 	
 	// Execute the application
-//	system(string("open " + text_filename).c_str());
-    ShellExecute (NULL, "open", text_filename, NULL, NULL, SW_SHOWNORMAL);
+//	system(string("start " + text_filename).c_str());
+//    ShellExecute (GetDesktopWindow(), "start", text_filename, NULL, NULL, SW_SHOWNORMAL);
+
+//	ShellExecute(0, 0, L"http://www.google.com", 0, 0 , SW_SHOW );
+	
+	ShellExecute(NULL, "open", "file:///C:/Users/admin/Documents/GitHub/physicscalculator/files/solnphysics.pdf", NULL, NULL, SW_SHOWNORMAL);
+    cout << endl << " In open book" << endl;
 }
 
 //Bruno
@@ -58,14 +71,13 @@ void Calculator::menuprint()
 	cout << " 1 - Get solution." << endl;
 	cout << " 2 - Find similar." << endl;
 	cout << " 3 - Steps." << endl;
-	cout << " 4 - Request a solution." << endl;
-	cout << " 5 - Exit." << endl;
+	cout << " 4 - Exit." << endl;
 	cout << endl << "This calculator is programmed for " << books.at(currentBook)->name << endl;
 	cout << endl << "Enter your choice and press enter: ";
 }
 void Calculator::choices() 
 {
-	Problem* prob;
+	//Problem* prob;
 	cin >> choice;
 	switch (choice)
 	{
@@ -87,12 +99,13 @@ void Calculator::choices()
 							switch (problem)	//OPTIONS FOR PROBLEMS WITHIN CHAPTER 3
 							{
 							case 1:
-								prob = nowBook()->getChapter(2)->getProblem(0);
+								
 								system("cls");	//CLEAR SCREEN
 								
-								prob->initProblem();
+								nowBook()->getChapter(2)->getProblem(0)->initProblem();
+								openBook(nowBook()->getChapter(2)->getProblem(0)->page);
 								
-								delete prob;
+								
 								break;
 								
 //								cout << "A squirrel has x- and y-coordinates (___m, ___m) at time t1=0 and coordinates (___m, ___m) at" << endl 
@@ -354,17 +367,17 @@ void Calculator::choices()
 			cout << "Enter a problem you want the steps for" << endl;
 			// rest of code
 			break;
-		case 4: //REQUEST A SOLUTION AND PRINTS TO TEXT FILE
-			break;
-		case 5:	//CLOSE THE PROGRAM
+		case 4:	//CLOSE THE PROGRAM
 			cout << endl << "Are you sure you want to exit?" << endl;
-			break;
+			break;	
 		default: //IF USER DOESNT ENTER A VALID OPTION IT WILL CONTINUE TO LOOP TO THE MENU SCREEN, SKIPPING THE FIRST MENU OPTION OF 0 OR 4
 		{
 			menuprint();
 			choices();
 			//break;
 		}
+		
+//		delete prob;
 	}
 }
 }

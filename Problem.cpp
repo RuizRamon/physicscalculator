@@ -4,24 +4,25 @@ namespace Solver
 {
 	void Problem::initProblem()
 	{
-//		varPrompts.push_back("Enter t1 x coordinate ___ m: ");
-//		varPrompts.push_back("Enter t1 y coordinate ___m: ");
-//		varPrompts.push_back("Enter your t2 = ___s: ");
-//		varPrompts.push_back("Enter t2 x coordinate ___ m: ");
-//		varPrompts.push_back("Enter t2 y coordinate ___m: ");
-//		
-//		answerPrompts.push_back("The X-Component of average velocity in m/s: ");
-//		answerPrompts.push_back("The Y-Component of average velocity in m/s: ");
-//		answerPrompts.push_back("The magnitude of average velocity in m/s: ");
-//		answerPrompts.push_back("Direction of average velocity in degrees: ");
-
+		cout << vars.size() << endl;
+		cout << answers.size() << endl;
+		
 		cout << "Solution for Problem 3.1..." << endl << endl;
 		cout << "Problem Text:" << endl;
 		cout << problemText << endl;;
 		promptVar();
 		solve(numProblem);
 		displayAns();
+		
+		//empty vectors for answers and variables
+		vars.empty();
+		answers.empty();
+		
+		cout << vars.size() << endl;
+		cout << answers.size() << endl;
 	}
+	
+	
 	void Problem::addVarPrompt(string p)
 	{
 		varPrompts.push_back(p);
@@ -46,15 +47,15 @@ namespace Solver
 	{
 		switch(num)
 		{
-			case 0:
+			case 1:
 				answers.push_back((vars.at(3) - vars.at(0)) / (vars.at(2) - 0));
 				answers.push_back((vars.at(4) - vars.at(1)) / (vars.at(2) - 0));
 				answers.push_back(pow(pow(answers.at(0),2) + pow(answers.at(1),2) , 0.5));
 				answers.push_back(atan( answers.at(1) / answers.at(0)) * 180.0 / M_PI);
 				break;
-			case 1:
-				break;
 			case 2:
+				break;
+			case 3:
 				break;
 			default:
 				break;
@@ -64,9 +65,13 @@ namespace Solver
 	
 	void Problem::displayAns()
 	{
+		cout << "In display" << endl;
+		cout << "answerPrompts size : " << answerPrompts.size() << endl;
+		cout << "ans size: " << answers.size() << endl;
+		cout << "vars size: " << vars.size() << endl;
 		for(int i=0; i<answers.size(); i++)
 		{
-			cout << answerPrompts.at(i) << answers.at(0) << endl;
+			cout << answerPrompts.at(i) << answers.at(i) << endl;
 		}
 	}
 }

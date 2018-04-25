@@ -22,7 +22,10 @@ namespace Solver
 			}
 			~Chapter()
 			{
-				
+				for(int i=0; i<problems.size(); i++)
+				{
+					delete problems.at(i);
+				}
 			}
 	};
 }

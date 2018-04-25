@@ -30,13 +30,15 @@ namespace Solver
 		
 		//reuse temp variables
 		temp = nullptr;
+		
 		vPrompts.clear();
 		aPrompts.clear();
+		
 		
 		//Problem 2
 		
 		
-		
+		delete temp;
 	}
 	void Chapter::addProblem(Problem* p)
 	{

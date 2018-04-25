@@ -28,8 +28,8 @@ namespace Solver
 			
 			Book(int choice)
 			{
-				path = "files\\";
-				pathManual = "files\\";
+				path = "files/";
+				pathManual = "files/";
 				switch(choice)
 				{
 					case 0:
@@ -46,7 +46,10 @@ namespace Solver
 			
 			~Book()
 			{
-				
+				for(int i=0; i<chapters.size(); i++)
+				{
+					delete chapters.at(i);
+				}
 			}
 	};
 }

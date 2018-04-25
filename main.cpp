@@ -38,8 +38,17 @@ void showLogo()
 int main()
 {
 
+// file:///C:/Users/admin/Documents/GitHub/physicscalculator/files/solnphysics.pdf
 	bool exit(false), bookChoice(false);
-	Calculator calcmenu;
+	string path;
+	
+	cout << "Enter file path to program directory folder with trailing slash" << endl;
+	cout << "Example: C:/Users/admin/Documents/GitHub/physicscalculator/" << endl;
+	
+	cin >> path;
+	
+	
+	Calculator calcmenu(path);
 	
 	//bruno
 	cout << "Homework Helper v0.0.1" << endl;
