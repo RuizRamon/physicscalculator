@@ -82,11 +82,10 @@ void Calculator::menuprint()
 void Calculator::choices() 
 {
 
-	//Problem* prob;
-
+	Problem* prob;
 	string requestSolution;
 	ofstream myFile;
-	Problem* prob;
+	
 
 	cin >> choice;
 	switch (choice)
@@ -109,103 +108,18 @@ void Calculator::choices()
 							switch (problem)	//OPTIONS FOR PROBLEMS WITHIN CHAPTER 3
 							{
 							case 1:
-								
 								system("cls");	//CLEAR SCREEN
 								prob = &nowBook().getChapter(2).getProblem(0);
 								prob->initProblem();
 								
-//								openBook(nowBook()->getChapter(2)->getProblem(0)->page);
-								
-								
 								break;
-								
-//								cout << "A squirrel has x- and y-coordinates (___m, ___m) at time t1=0 and coordinates (___m, ___m) at" << endl 
-//								<< "time t2 = ___s.For this time interval, find (a) the components of the average velocity, and (b) the" << endl 
-//								<< "magnitude and direction of the average velocity. " << endl;
-//
-//								/*CALCULATION USING INPUTS AND OUTPUT*/
-//								var = new double [5];  //FIX ME.......... CREATE ARRAY EARLIER IN CODE AND CLEAR IT WHEN DONE WITH PROBLEMS	
-//								cout << "Enter t1 x coordinate ___ m: ";
-//								cin >> var[0];
-//
-//								cout << "Enter t1 y coordinate ___m: ";
-//								cin >> var[1];
-//
-//								cout << "Enter your t2 = ___s: ";
-//								cin >> var[2];
-//
-//								cout << "Enter t2 x coordinate ___ m: ";
-//								cin >> var[3];
-//
-//								cout << "Enter t2 y coordinate ___m: ";
-//								cin >> var[4];
-//
-//								//At t1=0 (X1,Y1)
-//								//At t2=3 (X2,Y2)
-//								//X2-X1/3-0
-//								ans = new double [5];
-//								cout << endl;
-//								cout << "(a)" << endl;
-//								ans[0] = (var[3] - var[0]) / (var[2] - 0);
-//								cout << "The X-Component of average velocity is " << ans[0] << " m/s";
-//								cout << endl;
-//
-//								ans[1] = (var[4] - var[1]) / (var[2] - 0);
-//								cout << "The Y-Component of average velocity is " << ans[1] << " m/s";
-//
-//								temp = pow(ans[0], 2) + pow(ans[1],2);
-//								ans[2] = pow(temp, 0.5);
-//								cout << endl;
-//								cout << "(b)" << endl;
-//								cout << "The magnitude of average velocity is " << ans[2] << " m/s";
-//
-//								ans[3] = atan(ans[1] / ans[0]) * 180 / M_PI;
-//								cout << endl;
-//								cout << "Direction of average velocity is "<< ans[3]<< " degrees"<< endl;
-//								delete[] var;
-//								delete[] ans;
-								
 							case 2:
 								system("cls");	//CLEAR SCREEN
-								cout << "Solution for Problem 3.2..." << endl << endl;
-								cout << "Problem Text:" << endl;
-								cout << "A rhinoceros is at the origin of coordinates at time t1=0" << endl << "For the time interval from t1=0 to t2=___s, the rhino's average" << endl << "velocity has x-component ___ m/s and y-component" << endl << "___ m/s. At time t2 = ___s, (a) what are the x- and y-coordinates" << endl << "of the rhino? (b) How far is the rhino from the origin? " << endl;
-
-								/*CALCULATION USING INPUTS AND OUTPUT*/
-								var = new double[3];  //FIX ME.......... CREATE ARRAY EARLIER IN CODE AND CLEAR IT WHEN DONE WITH PROBLEMS	
-								cout << endl;
-								cout << "Enter t2 = ___ s: ";
-								cin >> var[0];
-
-								cout << "Enter x-component ___m/s: ";
-								cin >> var[1];
-
-								cout << "Enter y-component ___m/s: ";
-								cin >> var[2];
-
-
-								//t2 = 12.0s				var[0]
-								//x component = -3.8		var[1]
-								//y-component = 4.9			var[2]
-								ans = new double[3];
-								cout << endl;
-								cout << "(a)" << endl;
-								ans[0] = (var[1])*(var[0]);
-								cout << "The X-Coordinate is " << ans[0] << " m";
-								cout << endl;
-
-								ans[1] = (var[2])*(var[0]);
-								cout << "The Y-Coordinate is " << ans[1] << " m";
-
-								temp = pow(ans[0], 2) + pow(ans[1], 2);
-								ans[2] = pow(temp, 0.5);
-								cout << endl;
-								cout << "(b)" << endl;
-								cout << "The rhino is " << ans[2] << " m away from the origin." << endl;
-								delete[] var;
-								delete[] ans;
-								temp = 0;
+								prob = &nowBook().getChapter(2).getProblem(1);
+								prob->initProblem();
+								
 								break;
+
 							case 3:
 								system("cls");	//CLEAR SCREEN
 								cout << "Solution for Problem 3.3..." << endl << endl;
